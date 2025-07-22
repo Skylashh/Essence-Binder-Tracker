@@ -1,0 +1,53 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+.player {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.player-top {
+  background: #5169f4;
+  color: white;
+  transform: rotate(180deg);
+}
+.player-bottom {
+  background: #e9295b;
+  color: white;
+}
+.life-counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+}
+.life-counter button {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: #333;
+}
+.essence-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.essence-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 6px;
+}
+.filled {
+  background: white;
+}
