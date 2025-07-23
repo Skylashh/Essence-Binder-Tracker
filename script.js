@@ -7,6 +7,8 @@ function changeLife(player, amount) {
 
 function addEssence(id) {
   const bar = document.getElementById(id);
+
+  // MAX ESSENCE LIMIT = 5
   if (bar.children.length >= 5) return;
 
   const box = document.createElement("div");
