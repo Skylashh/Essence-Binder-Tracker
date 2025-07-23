@@ -23,7 +23,9 @@ body {
   box-sizing: border-box;
   animation: fadeInUp 0.5s ease both;
 }
-
+.player-top .player-inner {
+  transform: rotate(180deg);
+}
 .player-top {
   background-color: #232839;
   transform: rotate(180deg);
@@ -32,7 +34,7 @@ body {
 
 .player-bottom {
   background-color: #b0811c;
-  transform: rotate(0deg);
+  transform: none;
   color: white;
 }
 
@@ -151,5 +153,47 @@ h2 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+    overflow: auto;
+  }
+
+  .player {
+    padding: 1rem 0.5rem;
+  }
+
+  .life-counter {
+    gap: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .life-counter button {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .controls button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .essence-box {
+    width: 24px;
+    height: 24px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
   }
 }
