@@ -1,27 +1,27 @@
-
-const maxEssence = 5;
-function initEssence() {
-  ["p1", "p2"].forEach(id => {
-    const row = document.getElementById(`essence-${id}`);
-    for (let i = 0; i < maxEssence; i++) {
-      const box = document.createElement("div");
-      box.classList.add("essence-box");
-      box.addEventListener("click", () => box.classList.toggle("filled"));
-      row.appendChild(box);
-    }
-  });
-}
 function changeLife(player, amount) {
-  const el = document.getElementById(`life-${player}`);
-  let life = parseInt(el.textContent);
-  life += amount;
-  el.textContent = life;
+  const span = document.getElementById(`life-${player}`);
+  let current = parseInt(span.textContent, 10);
+  current += amount;
+  span.textContent = current;
 }
-initEssence();
 
-// Register PWA
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js")
-    .then(() => console.log("✅ Service Worker registered"))
-    .catch(err => console.error("❌ SW registration failed:", err));
+function addEssence(id) {
+  const bar = document.getElementById(id);
+  if (bar.children.length >= 5) return;
+
+  const box = document.createElement("div");
+  box.classList.add("essence-box");
+
+  box.addEventListener("click", () => {
+    box.classList.toggle("filled");
+  });
+
+  bar.appendChild(box);
+}
+
+function removeEssence(id) {
+  const bar = document.getElementById(id);
+  if (bar.lastChild) {
+    bar.removeChild(bar.lastChild);
+  }
 }

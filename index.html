@@ -1,24 +1,57 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TCG Tracker</title>
+  <title>Essence & Life Tracker</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#5169f4" />
   <link rel="icon" href="icon-192.png" />
 </head>
 <body>
+  <!-- Player 1 (Top) -->
   <div class="player player-top">
-    <div class="life-counter"><button onclick="changeLife('p1', -1)">−</button><span id="life-p1">20</span><button onclick="changeLife('p1', 1)">+</button></div>
-    <div class="essence-row" id="essence-p1"></div>
+    <h2>Player 1</h2>
+
+    <div class="life-counter">
+      <button onclick="changeLife('p1', -1)">-</button>
+      <span id="life-p1">20</span>
+      <button onclick="changeLife('p1', 1)">+</button>
+    </div>
+
+    <div class="essence-bar" id="essence1"></div>
+
+    <div class="controls">
+      <button onclick="addEssence('essence1')">+ Add Essence</button>
+      <button onclick="removeEssence('essence1')">- Remove Essence</button>
+    </div>
   </div>
+
+  <div class="divider"></div>
+
+  <!-- Player 2 (Bottom, Flipped) -->
   <div class="player player-bottom">
-    <div class="life-counter"><button onclick="changeLife('p2', -1)">−</button><span id="life-p2">20</span><button onclick="changeLife('p2', 1)">+</button></div>
-    <div class="essence-row" id="essence-p2"></div>
+    <h2>Player 2</h2>
+
+    <div class="life-counter">
+      <button onclick="changeLife('p2', -1)">-</button>
+      <span id="life-p2">20</span>
+      <button onclick="changeLife('p2', 1)">+</button>
+    </div>
+
+    <div class="essence-bar" id="essence2"></div>
+
+    <div class="controls">
+      <button onclick="addEssence('essence2')">+ Add Essence</button>
+      <button onclick="removeEssence('essence2')">- Remove Essence</button>
+    </div>
   </div>
+
   <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
 </body>
 </html>

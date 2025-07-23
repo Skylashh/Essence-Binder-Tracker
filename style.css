@@ -1,53 +1,155 @@
-
+/* === Base Styles === */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, sans-serif;
+  background-color: #121212;
+  color: white;
   display: flex;
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  touch-action: manipulation;
 }
+
+/* === Player Sections === */
 .player {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  animation: fadeInUp 0.5s ease both;
 }
+
 .player-top {
-  background: #5169f4;
-  color: white;
+  background-color: #5169f4;
   transform: rotate(180deg);
-}
-.player-bottom {
-  background: #e9295b;
   color: white;
 }
+
+.player-bottom {
+  background-color: #e9295b;
+  transform: rotate(0deg);
+  color: white;
+}
+
+/* === Section Titles === */
+h2 {
+  margin-bottom: 1rem;
+}
+
+/* === Life Counter === */
 .life-counter {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
+
 .life-counter button {
+  background-color: #222;
+  border: 1px solid #fff;
+  color: white;
+  border-radius: 999px;
   font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 12px;
-  background: white;
-  color: #333;
-}
-.essence-row {
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease;
   display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-align: center;
 }
+
+.life-counter button:active {
+  transform: scale(0.95);
+}
+
+.life-counter span {
+  transition: color 0.2s, transform 0.2s ease;
+}
+
+.life-counter span.changed {
+  color: #ffff88;
+  transform: scale(1.2);
+}
+
+/* === Essence Tracker === */
+.essence-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 1rem 0;
+  max-width: 90vw;
+}
+
 .essence-box {
-  width: 20px;
-  height: 20px;
-  border: 2px solid white;
-  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  background-color: #333;
+  border: 2px solid #888;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
-.filled {
-  background: white;
+
+.essence-box.filled {
+  background-color: white;
+  border-color: white;
+  transform: scale(1.15);
+}
+
+/* === Essence Controls === */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.controls button {
+  padding: 0.6rem 1.2rem;
+  background-color: #222;
+  border: 1px solid white;
+  color: white;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.controls button:active {
+  transform: scale(0.95);
+}
+
+/* === Divider === */
+.divider {
+  height: 2px;
+  background-color: #444;
+  width: 100%;
+}
+
+/* === Entry Animation === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
